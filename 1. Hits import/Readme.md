@@ -1,10 +1,11 @@
 ## a. How to transfer data to mysql
-### Instructions 
+### How I did it 
 1. Install `mysql server` and ensure it is running correctly
-2. Create a new database and give it a name, e.g Jobsdb
+2. Create a new database and give it a name, `jobcluster`
 3. Write php script to read `.xls` files and extract the data from the excel file
 4. Write a php script to perform a transactional/batch write of the data into the database
 5. Implement idempotency to cater for failed transactions whilst maintaining data integrity with multiple upload attempts of the same file
+6. Image to the import records is included in this directory (`1b. query for job access.png`)
 
 ## b. SQL Query
 > Database : jobcluster
@@ -55,7 +56,12 @@ LEFT JOIN reports r
 ON h.id = r.job_id
 ```
 
-
+## How to run this app on your own
+1. Make sure you have mysql installed and  is running on your environment
+2. Create a new database for the application
+3. Update the connection configuration in the $config array in the HitModel.php file
+4. Execute the import file by executing `php HitsImport.php` 
+5. All Done, you can execute the import as many times as you wish, no duplicate data will get imported
 
 
 

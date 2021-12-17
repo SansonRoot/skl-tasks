@@ -38,19 +38,11 @@
 
 header('content-type: image/png');
 
-//$watermark = imagecreatefrompng('boost-logo.png');
-//$watermark_width = imagesx($watermark);
-//$watermark_height = imagesy($watermark);
-
-$watermark = imagecreatetruecolor(500, 500);
+$board = imagecreatetruecolor(500, 500);
 
 $image = imagecreatetruecolor(20, 20);
 $image = imagecreatefrompng('boost-logo.png');  //Path to the image file
 
-//$size = getimagesize($_GET['src']);
-//$dest_x = $size[0] - $watermark_width - 5;
-//$dest_y = $size[1] - $watermark_height - 5;
-
-imagecopymerge($image, $watermark, 5, 5, 0, 0, 500, 500, 100);
+imagecopymerge($image, $board, 5, 5, 0, 0, 500, 500, 100);
 imagejpeg($image);
 imagedestroy($image);

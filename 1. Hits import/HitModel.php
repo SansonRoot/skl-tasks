@@ -5,14 +5,25 @@ class HitModel
 {
 
     private $connection;
-//    private static $instance = null;
+
+    private $config = [
+        'host'=>'localhost',
+        'username'=>'root',
+        'password'=>'',
+        'database'=>'',
+    ];
 
     public function __construct()
     {
 
         // Create connection
         if (!$this->connection) {
-            $this->connection = new mysqli('localhost', 'root', 'root', 'jobcluster');
+            $this->connection = new mysqli(
+                $this->config['host'],
+                $this->config['username'],
+               $this->config['password'],
+               $this->config['database']
+            );
         }
 
         $this->createTable();
