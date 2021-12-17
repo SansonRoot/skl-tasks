@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!--<script src="jquery-slim.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Word Scramble</title>
+</head>
+<body>
+
+<div id="content">
+
+    <h3 id="output"></h3>
+    <form id="form">
+        <label for="word">Enter word</label>
+        <input id="word" value="">
+        <button id="scramble-btn" >Scramble</button>
+        <button id="unscramble-btn" >Unscramble</button>
+    </form>
+
+</div>
+
+<script type="text/javascript">
+
+$('#scramble-btn').click(function (event) {
+
+    event.preventDefault();
+
+    let val = $('#word').val();
+
+    if (val !== '')
+        ajaxRequest(val);
+    else
+        alert('Word cannot be empty');
+})
+
+
+$('#unscramble-btn').click(function (event) {
+
+    event.preventDefault();
+
+    let val = $('#output').html();
+
+    if (val !== '')
+        ajaxRequest(val);
+    else
+        alert('Please scramble a word first to unscramble');
+
+})
+
+function ajaxRequest(input) {
+    $.post("execute.php",{
+
+        word: input
+
+    },function (data) {
+        $('#output').html(data);
+    })
+}
+
+</script>
+
+</body>
+</html>
