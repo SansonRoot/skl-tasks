@@ -18,7 +18,6 @@ $white_bgc = imagecolorallocate($img_blank,255,255,255);
 //black_bg
 $black_bgc = imagecolorallocate($img_blank,0,0,0);
 
-
 //start with black
 $black = false;
 
@@ -29,6 +28,7 @@ for ($i = 0;$i<$row_count;$i++){
         //display black
         if (!$black){
             imagefilledrectangle($img_blank,$j*$length,$i*$length,($j+1)*$length,($i+1)*$length, $black_bgc);
+
         }else{
             //display white
             imagefilledrectangle($img_blank,$j*$length,$i*$length,($j+1)*$length,($i+1)*$length, $white_bgc);
@@ -36,6 +36,8 @@ for ($i = 0;$i<$row_count;$i++){
         $black = !$black;
     }
 
+    //alternate row color
+    $black = !$black;
 }
 
 imagepng($img_blank);
