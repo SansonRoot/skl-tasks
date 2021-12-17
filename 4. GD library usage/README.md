@@ -14,7 +14,12 @@ This is a simple program that takes in a word and scrambles it in a way that it 
     >> NOTE: if Port 8000 is in use in your computer, you can try other ports like 8080, 3000, 4000 etc
     
  4. Your web server is live and kicking. 
- 5. Visit /checker-draw.html to access the app and enjoy!. For example, with the above web service running, you can access the app via
-    `http://localhost:8000/checker-draw.html`
+ 5. Visit /gd-image-printer.php to access the app and enjoy!. For example, with the above web service running, you can access the app via
+    `http://localhost:8000/gd-image-printer.php`
+    > The above will use the default dimensions set length=50; height=500; width=500 to construct the image
+ 6. You can specify the image dimensions through the url parameters for a custom size. e.g
+     `http://localhost:8000/gd-image-printer.php?width=500&height=500&length=50`
     
- 6. That's It! Enjoy! 
+ 7. This image can also be rendered using the html image tag, and you can do this by visiting
+    `http://localhost:8000/checker-draw.html`
+ 8. The dimensions of the image can also be modified in the image attributes as well
